@@ -158,6 +158,8 @@ def run_search():
 
     # 버튼
     if st.sidebar.button('조회'):
+        data['RENT_GTN'] = pd.to_numeric(data['RENT_GTN'])
+        data['RENT_FEE']= pd.to_numeric(data['RENT_FEE'])
         gu_search = (data['SGG_NM'] == gu_select)
         dong_search = (data['BJDONG_NM'] == dong_select)
         if '모두' in type_select:

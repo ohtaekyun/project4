@@ -1,9 +1,10 @@
 from update import update_data
 import streamlit as st
+from update import run_update
 
 def main():
-    z = update_data()
-    print(z)
+    run_update()
+    
 
 
 if __name__ == "__main__":
