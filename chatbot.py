@@ -53,7 +53,7 @@ def chatrun():
             message = completions.choices[0].text
             return message
     st.title("*Hi Chatbot*")
-    st.write("부동산 검색예시: \t*부동산 강서구 20220101*")
+    st.write('부동산 검색예시: \t*"부동산 강서구 20220101"*')
     # Storing the chat
     if 'generated' not in st.session_state:
         st.session_state['generated'] = []
