@@ -1,3 +1,4 @@
+@REM Git batch파일 코드
 set repo_path=C:\Users\h\Desktop\project4
 cd /d %repo_path%
 call git add .
