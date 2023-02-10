@@ -8,6 +8,7 @@ import plotly.graph_objects as go
 import math
 import sqlite3
 import datetime
+import tensorflow as tf
 
 from home import run_home
 from datetime import datetime
@@ -21,7 +22,7 @@ from streamlit_option_menu import option_menu
 from mean_db import dong_j_d_mean
 
 
-st.title('🗽 방방콕콕 🛴 ')
+st.title('🏘️ 방방 콕콕 🙋 ')
 selected3 = option_menu(None, ["🏠 Home", "🔎 전월세 검색",  "📊 전세 예측", '🤖 챗봇', '💬 건의사항'], 
     # icons=['house', 'cloud-upload', "list-task", 'gear'], 
     menu_icon="cast", default_index=0, orientation="horizontal",
