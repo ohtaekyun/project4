@@ -32,22 +32,26 @@
 
 ## 참조
 - OPEN API: [서울시 부동산 전월세가 정보](https://data.seoul.go.kr/dataList/OA-21276/S/1/datasetView.do)
+- [Stock Price Prediction Project using TensorFlow](https://www.geeksforgeeks.org/stock-price-prediction-project-using-tensorflow/)
+- [[금융] 아파트 실거래가 예측](https://undeadkwandoll.tistory.com/48)
+- [My first Streamlit app using choropleth map](https://medium.com/@ozgunhaznedar/my-first-streamlit-app-using-choropleth-map-5e4e337a7d66)
+- [Streamlit & ChatGPT API 배포 예제](https://dschloe.github.io/python/2023/02/streamlit_openai_example/)
 
 
 ## 변경점
 ***
 2023-01-31
 기본 UI 구현
-
+***
 2023-02-01
-sqlite DB 연동
-
-2023-02-02
-게시판 탭 추가
-
+sqlite DB 연동, 게시판 탭 추가
+***
+2023-02-04
+geojson을 통한 지도 데이터 연결
+***
 2023-02-08
 챗봇 기능 추가
-
+***
 2023-02-09
-batch 파일 추가(API데이터 갱신), csv 파일 삭제
+batch process 추가(API데이터 갱신), csv 파일 삭제
 ***
