@@ -18,11 +18,11 @@
 - 건의사항 게시판
 
 ## 세부 사항
-- 깃허브 링크: 
-- 배포 링크: [내 방 어디](https://ohtaekyun-project4-app-daesez.streamlit.app/)
-- 사용 언어: 'Python (ver. 3.9.13)'
-- 사용 툴: 'VS Code (ver. 1.75.0)'
-- 라이브러리: 'streamlit (ver. 1.17.0)', 'pandas (ver. 1.5.3)', 'numpy (ver. 1.24.1)', 
+- 깃허브 링크: [내 방 어디: 깃허브](https://github.com/ohtaekyun/project4)
+- 배포 링크: [내 방 어디: 배포](https://ohtaekyun-project4-app-daesez.streamlit.app/)
+- 사용 언어: 'Python (3.9.13)'
+- 사용 툴: 'VS Code (1.75.0)'
+- 라이브러리: 'streamlit (1.17.0)', 'pandas (1.5.3)', 'numpy (1.24.1)', 
 
 
 ## 한계
