@@ -18,33 +18,36 @@
 - 건의사항 게시판
 
 ## 세부 사항
-- 깃허브 링크: [내 방 어디: 깃허브](https://github.com/ohtaekyun/project4)
-- 배포 링크: [내 방 어디: 배포](https://ohtaekyun-project4-app-daesez.streamlit.app/)
-- 사용 언어: 'Python (3.9.13)'
-- 사용 툴: 'VS Code (1.75.0)'
-- 라이브러리: 'streamlit (1.17.0)', 'pandas (1.5.3)', 'numpy (1.24.1)', 
+- 깃허브 링크: [내 방 어디: 깃허브 링크](https://github.com/ohtaekyun/project4)
+- 배포 링크: [내 방 어디: 배포 링크](https://ohtaekyun-project4-app-daesez.streamlit.app/)
+- 사용 언어: Python (3.9.13)
+- 사용 툴: VS Code (1.75.0)
+- 라이브러리: streamlit (1.17.0), pandas (1.5.3), numpy (1.24.1), plotly (5.13.0), matplotlib (3.6.3), streamlit-option-menu (0.3.2), geopandas (0.12.2), joblib (1.2.0), scikit-learn (1.2.1), tensorflow (2.9.0), seaborn (0.12.2), geopandas (0.12.2), pydeck (0.8.0), prophet (1.1.2), openai (0.26.5), streamlit_chat (0.0.2.1), requests (2.28.2)
 
 
 ## 한계
-- 실거래 위주의 데이터다 보니 매물 데이터가 부족
-- 준전세, 반전세와 같은 중간 개념은 반영하지 못함
-
+- 실거래 위주의 데이터다 보니 실매물 데이터가 부족했음
+- 준전세, 반전세와 같은 전세와 월세 사이 중간 개념은 반영하지 못함
 
 
 ## 참조
 - OPEN API: [서울시 부동산 전월세가 정보](https://data.seoul.go.kr/dataList/OA-21276/S/1/datasetView.do)
 
 
-
-
-
-
-
-
 ## 변경점
 ***
-2023-02-09 변경점
-update.py 파일 추가되었습니다.
-부동산 데이터프레임 데이터 타입들은 모두 문자열(Object)입니다. 
-최신 데이터 갱신할 땐 update.py 파일 한번 실행해주시면 됩니다.
+2023-01-31
+기본 UI 구현
+
+2023-02-01
+sqlite DB 연동
+
+2023-02-02
+게시판 탭 추가
+
+2023-02-08
+챗봇 기능 추가
+
+2023-02-09
+batch 파일 추가(API데이터 갱신), csv 파일 삭제
 ***
