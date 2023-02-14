@@ -58,7 +58,7 @@ def prediction2():
         m = Prophet()
         m.fit(df_train)
 
-        future = m.make_future_dataframe(periods=30)
+        future = m.make_future_dataframe(periods=31)
         forecast = m.predict(future)
             # st.write(forecast)
 
