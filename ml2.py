@@ -49,37 +49,43 @@ def prediction2():
     s = st.selectbox('원하는 구를 선택하세요',(list))
     tab1, tab2 = st.tabs(['Tab 1', 'Tab 2'])
     with tab1:
-    # 예측모델 1
-        check = st.checkbox(f'{s} '"실거래가 예측 수치로 보기 1")
-        # data1 = pd.read_csv(PATH + 'ml_data/' + s + '.csv', encoding='cp949', index_col=False)
-        data1 = ml_data(s)
-        df_train = data1[['CNTRCT_DE', 'RENT_GTN']]
+        # 예측모델 1
+        check = st.checkbox(f'{SELECTED_SGG} '"실거래가 예측 수치로 보기 1")
+        prophet_data = data[data['SGG_NM']==SELECTED_SGG]
+        prophet_data2 = prophet_data.drop(columns=['SGG_NM'])
+        df_train = prophet_data2[['CNTRCT_DE', 'RENT_GTN']]
         df_train = df_train.rename(columns={"CNTRCT_DE": "ds", "RENT_GTN": "y"})
-        m = Prophet()
-        m.fit(df_train)
+        
+        p_model = Prophet()
+        p_model.fit(df_train)
 
-        future = m.make_future_dataframe(periods=31)
-        forecast = m.predict(future)
-            # st.write(forecast)
+        future = p_model.make_future_dataframe(periods=30)
+        forecast = p_model.predict(future)
+        
+        # dates = forecast['ds']
+        # y_truedates = dates[:len(dates)-30, ]
+        # y_predates = dates[len(dates)-30:, ]
+        # # fig, ax = plt.subplots()
+        
+        true_df = forecast.loc[forecast['ds'] <= date, ['ds','trend']]
+        pred_df = forecast.loc[forecast['ds'] > date, ['ds','trend']]
 
-        dates = forecast['ds']
-        y_truedates = dates[:len(dates)-30, ]
-        y_predates = dates[len(dates)-30:, ]
+
         if check:
-            st.subheader(f'{s} ''실거래가 예측 수치')
+            st.subheader(f'{SELECTED_SGG} ''실거래가 예측 수치')
             st.write(forecast.loc[forecast['ds'] > date, ['ds','yhat']])
             st.write("👉 ds: 날짜 ,"'yhat: 예측가')
         else:
-            st.subheader(f'{s} ''실거래가 예측 그래프')
+            st.subheader(f'{SELECTED_SGG} ''실거래가 예측 그래프')
             fig, ax = plt.subplots()
-            ax.plot(y_truedates, forecast.loc[forecast['ds'] <= date, ['trend']],label='past')
-            ax.fill_between(x = y_truedates, 
+            ax.plot(true_df['ds'], true_df['trend'],label='past')
+            ax.fill_between(x = true_df['ds'], 
                             y1=forecast.loc[forecast['ds'] <= date, ['yhat_lower']]['yhat_lower'], 
                             y2=forecast.loc[forecast['ds'] <= date, ['yhat_upper']]['yhat_upper'], 
                             color='#70D5F5', alpha=0.2, label='Uncertainty interval'
                             )
-            ax.plot(y_predates, forecast.loc[forecast['ds'] > date, ['yhat']],label='prediction')
-            ax.fill_between(x = y_predates, 
+            ax.plot(pred_df['ds'], forecast.loc[forecast['ds'] > date, ['yhat']],label='prediction')
+            ax.fill_between(x = pred_df['ds'], 
                             y1=forecast.loc[forecast['ds'] > date, ['yhat_lower']]['yhat_lower'], 
                             y2=forecast.loc[forecast['ds'] > date, ['yhat_upper']]['yhat_upper'], 
                             color='#F55C1A', alpha=0.2, label='Uncertainty interval'
@@ -88,6 +94,8 @@ def prediction2():
             ax.grid(True, which='major', c='gray', ls='-', lw=1, alpha=0.2)
             ax.set_title('Prophet Graph')
             st.pyplot(fig)
+
+            
    
 
 
