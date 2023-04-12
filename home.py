@@ -9,10 +9,10 @@ import datetime
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
 from search import run_search
-from predict import run_predict
+from prediction.predict import run_predict
 from suggestions import run_suggestions
 from streamlit_option_menu import option_menu
-from mean_db import dong_j_d_mean
+from prediction.mean_db import dong_j_d_mean
 from update import update_data
 
 

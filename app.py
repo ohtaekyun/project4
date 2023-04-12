@@ -14,12 +14,12 @@ from home import run_home
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
 from search import run_search
-from predict import run_predict
 from suggestions import run_suggestions
 from update import update_data
 from chatbot import chatrun
 from streamlit_option_menu import option_menu
-from mean_db import dong_j_d_mean
+from prediction.mean_db import dong_j_d_mean
+from prediction.predict import run_predict
 
 
 st.title('🏘️ 내 방 어디 🙋 ')
@@ -33,7 +33,7 @@ selected3 = option_menu(None, ["🏠 Home", "🔎 전월세 검색",  "📊 전�
         "nav-link-selected": {"background-color": "#47C83E"},
     }
 )
-
+data = update_data()
 
 # 전월세 검색 탭
 if selected3 == "🔎 전월세 검색":
@@ -41,7 +41,8 @@ if selected3 == "🔎 전월세 검색":
 
 # 전세 시세 예측 탭 
 elif selected3 == "📊 전세 예측":
-    run_predict()
+    data = update_data()
+    run_predict(data)
 
 # 챗봇 탭
 elif selected3 == "🤖 챗봇":
